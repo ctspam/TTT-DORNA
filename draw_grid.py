@@ -6,7 +6,7 @@ PEN_DOWN_Z = 81.85
 PEN_UP_Z = 91.85
 VEL = 100
 
-# Grid line function with pen up/down
+# grid line function with pen up/down
 def draw_line(robot, start, end):
     # moving above the start point
     robot.lmove(timeout=-1, rel=0, vel=VEL, x=start[0], y=start[1], z=PEN_UP_Z, a=start[2], b=start[3], c=start[4])
