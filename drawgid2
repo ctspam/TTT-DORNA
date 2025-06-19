@@ -12,27 +12,25 @@ def main(robot):
     def move_to(x, y, z):
         robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=x, y=y, z=z, a=a, b=b, c=c)
 
-    ### 2 VERTICAL LINES ###
-    # Vertical Line 1
+    # vert 1
     move_to(245, -220, z_up)
     move_to(245, -220, z_down)
     move_to(245, -280, z_down)
     move_to(245, -280, z_up)
 
-    # Vertical Line 2
+    #vert 2
     move_to(265, -220, z_up)
     move_to(265, -220, z_down)
     move_to(265, -280, z_down)
     move_to(265, -280, z_up)
 
-    ### 2 HORIZONTAL LINES ###
-    # Horizontal Line 1
+    # horiz 1
     move_to(225, -240, z_up)
     move_to(225, -240, z_down)
     move_to(285, -240, z_down)
     move_to(285, -240, z_up)
 
-    # Horizontal Line 2
+    # horiz 2
     move_to(225, -260, z_up)
     move_to(225, -260, z_down)
     move_to(285, -260, z_down)
