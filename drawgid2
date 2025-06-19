@@ -2,33 +2,45 @@ import time
 from dorna2 import Dorna
 
 def main(robot):
-    # Corrected joints from image
+    # Corrected joint values from image
     a, b, c = 82.98, -61.35, 70.80
-    z = -7.57  # Pen down
+    z_down = -7.57     # Pen down
+    z_up = 20          # Pen up
     vel = 30
     accel = 50
 
-    # Start at top-left of the grid
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-220, z=z, a=a, b=b, c=c)
+    def move_to(x, y, z):
+        robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=x, y=y, z=z, a=a, b=b, c=c)
 
-    # Draw vertical line 1
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-280, z=z, a=a, b=b, c=c)
+    # === Vertical Line 1 ===
+    move_to(235, -220, z_up)
+    move_to(235, -220, z_down)
+    move_to(235, -280, z_down)
+    move_to(235, -280, z_up)
 
-    # Draw vertical line 2
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=255, y=-280, z=z, a=a, b=b, c=c)
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=255, y=-220, z=z, a=a, b=b, c=c)
+    # === Vertical Line 2 ===
+    move_to(255, -220, z_up)
+    move_to(255, -220, z_down)
+    move_to(255, -280, z_down)
+    move_to(255, -280, z_up)
 
-    # Draw vertical line 3
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-220, z=z, a=a, b=b, c=c)
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-280, z=z, a=a, b=b, c=c)
+    # === Vertical Line 3 ===
+    move_to(275, -220, z_up)
+    move_to(275, -220, z_down)
+    move_to(275, -280, z_down)
+    move_to(275, -280, z_up)
 
-    # Move to top horizontal line
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-240, z=z, a=a, b=b, c=c)
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-240, z=z, a=a, b=b, c=c)
+    # === Horizontal Line 1 ===
+    move_to(235, -240, z_up)
+    move_to(235, -240, z_down)
+    move_to(275, -240, z_down)
+    move_to(275, -240, z_up)
 
-    # Move to bottom horizontal line
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-260, z=z, a=a, b=b, c=c)
-    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-260, z=z, a=a, b=b, c=c)
+    # === Horizontal Line 2 ===
+    move_to(235, -260, z_up)
+    move_to(235, -260, z_down)
+    move_to(275, -260, z_down)
+    move_to(275, -260, z_up)
 
 if __name__ == "__main__":
     robot = Dorna()
