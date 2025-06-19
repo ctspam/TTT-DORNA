@@ -1,55 +1,38 @@
 import time
 from dorna2 import Dorna
 
-def draw_tic_tac_toe(robot):
-    # Fixed pen-down Z position
-    z = -7.57
+def main(robot):
+    # Corrected joints from image
     a, b, c = 82.98, -61.35, 70.80
-
-    # Drawing speed
+    z = -7.57  # Pen down
     vel = 30
     accel = 50
 
-    # Offsets for tic tac toe grid
-    left = 240
-    middle_x = 260
-    right = 280
-    top = -220
-    middle_y = -240
-    bottom = -280
-    pen_up_z = 20  # lift pen when moving
+    # Start at top-left of the grid
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-220, z=z, a=a, b=b, c=c)
 
-    # Pen up move
-    def move(x, y, z_lift=True):
-        robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel,
-                    x=x, y=y, z=(pen_up_z if z_lift else z),
-                    a=a, b=b, c=c)
+    # Draw vertical line 1
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-280, z=z, a=a, b=b, c=c)
 
-    # Pen down move
-    def draw(x, y):
-        robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel,
-                    x=x, y=y, z=z, a=a, b=b, c=c)
+    # Draw vertical line 2
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=255, y=-280, z=z, a=a, b=b, c=c)
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=255, y=-220, z=z, a=a, b=b, c=c)
 
-    # Start at top left (to avoid dragging)
-    move(left, top)
+    # Draw vertical line 3
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-220, z=z, a=a, b=b, c=c)
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-280, z=z, a=a, b=b, c=c)
 
-    ### Vertical lines ###
-    move(middle_x, top)
-    draw(middle_x, bottom)
-    move(right, top)
-    draw(right, bottom)
+    # Move to top horizontal line
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-240, z=z, a=a, b=b, c=c)
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-240, z=z, a=a, b=b, c=c)
 
-    ### Horizontal lines ###
-    move(left, middle_y)
-    draw(right, middle_y)
-    move(left, bottom)
-    draw(right, bottom)
-
-def main(robot):
-    draw_tic_tac_toe(robot)
+    # Move to bottom horizontal line
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=235, y=-260, z=z, a=a, b=b, c=c)
+    robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=275, y=-260, z=z, a=a, b=b, c=c)
 
 if __name__ == "__main__":
     robot = Dorna()
     robot.connect(host="localhost", port=443)
     main(robot)
     robot.close()
+
