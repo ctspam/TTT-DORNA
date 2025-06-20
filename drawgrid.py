@@ -2,7 +2,7 @@ import time
 from dorna2 import Dorna
 
 def main(robot):
-    # Correct joint orientation
+    # joint orientation
     a, b, c = 82.98, -61.35, 70.80
     z_down = -7.57
     z_up = 20
