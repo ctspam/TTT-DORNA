@@ -6,8 +6,8 @@ def main(robot):
     a, b, c = 82.98, -61.35, 70.80
     z_down = -7.57
     z_up = 20
-    vel = 30
-    accel = 50
+    vel = 50
+    accel = 70
 
     def move_to(x, y, z):
         robot.lmove(timeout=-1, rel=0, vel=vel, accel=accel, x=x, y=y, z=z, a=a, b=b, c=c)
