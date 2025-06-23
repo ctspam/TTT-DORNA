@@ -2,3 +2,5 @@ Playing an interactive game of tic tac toe where a user plays against a DORNA ro
 in real time and respond as the arm draws its own moves directly onto the grid game board. Using computer vision, robotics, game logic.
 
 https://docs.google.com/document/d/14dFpr9sK8FqW9cXap0O18i_EfS-cJSH21E_fF5u-BdU/edit?tab=t.yhiccmlrw3lp
+
+https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov4-tiny-object-detection-on-custom-data.ipynb
