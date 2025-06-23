@@ -35,6 +35,18 @@ def main(robot):
     move_to(225, -260, z_down)
     move_to(285, -260, z_down)
     move_to(285, -260, z_up)
+    
+#first x in the top box
+    move_to(228, -223, z_up)       # move to top-left corner
+    move_to(228, -223, z_down)     # pen down
+    move_to(242, -237, z_down)     # draw diagonal
+    move_to(242, -237, z_up)       # pen up
+
+    # Diagonal 2 (/)
+    move_to(242, -223, z_up)       # move to top-right corner
+    move_to(242, -223, z_down)     # pen down
+    move_to(228, -237, z_down)     # draw diagonal
+    move_to(228, -237, z_up)       # pen up
 
 if __name__ == "__main__":
     robot = Dorna()
