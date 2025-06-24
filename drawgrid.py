@@ -1,5 +1,5 @@
 import time
-import math  # <- Added for circle math
+import math  
 from dorna2 import Dorna
 
 def main(robot):
@@ -37,7 +37,7 @@ def main(robot):
     move_to(285, -260, z_down)
     move_to(285, -260, z_up)
     
-    # --- Draw the "X" in the top-left box ---
+    # x top right box
     move_to(228, -223, z_up)       # move to top-left corner
     move_to(228, -223, z_down)     # pen down
     move_to(242, -237, z_down)     # draw diagonal
@@ -48,7 +48,7 @@ def main(robot):
     move_to(228, -237, z_down)     # draw diagonal
     move_to(228, -237, z_up)       # pen up
 
-    # --- Draw the "O" in the middle box ---
+    # o in middle
     center_x = 255
     center_y = -250
     radius = 8
