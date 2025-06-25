@@ -15,7 +15,7 @@ for i in range(num_frames):
     # Capture a frame
     ret, frame = cap.read()
     if not ret:
-        print(f"⚠️ Frame {i} failed to capture")
+        print(f" Frame {i} failed to capture")
         break
 
     # Convert BGR to RGB (OpenCV -> PIL friendly)
